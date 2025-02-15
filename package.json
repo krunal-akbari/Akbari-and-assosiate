@@ -1,0 +1,25 @@
+{
+    "name": "akbari-and-assosiate",
+    "version": "1.0.0",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krunal-akbari/Akbari-and-assosiate.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/krunal-akbari/Akbari-and-assosiate/issues"
+    },
+    "homepage": "https://github.com/krunal-akbari/Akbari-and-assosiate#readme",
+    "description": "",
+    "dependencies": {
+        "electron": "^34.2.0",
+        "sqlite3": "^5.1.7"
+    }
+}

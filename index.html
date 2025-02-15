@@ -1,0 +1,201 @@
+// index.html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Account Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .form-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    button.delete {
+      background-color: #f44336;
+    }
+    button.delete:hover {
+      background-color: #d32f2f;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+      position: sticky;
+      top: 0;
+    }
+    .table-container {
+      max-height: 500px;
+      overflow-y: auto;
+      margin-top: 20px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+    .success {
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Account Management System</h1>
+
+  <h2>Add New Account</h2>
+  <form id="account-form">
+    <div class="form-container">
+      <div class="form-group">
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" required>
+      </div>
+      <div class="form-group">
+        <label for="middle_name">Middle Name:</label>
+        <input type="text" id="middle_name">
+      </div>
+      <div class="form-group">
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date">
+      </div>
+      <div class="form-group">
+        <label for="mobile_number">Mobile Number:</label>
+        <input type="tel" id="mobile_number">
+      </div>
+      <div class="form-group">
+        <label for="cif_number">CIF Number:</label>
+        <input type="text" id="cif_number">
+      </div>
+      <div class="form-group">
+        <label for="account_number">Account Number:</label>
+        <input type="text" id="account_number" required>
+      </div>
+      <div class="form-group">
+        <label for="pan_number">PAN Number:</label>
+        <input type="text" id="pan_number">
+      </div>
+      <div class="form-group">
+        <label for="aadhar_number">Aadhar Number:</label>
+        <input type="text" id="aadhar_number">
+      </div>
+      <div class="form-group">
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" id="date_of_birth">
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="interest_rate">Interest Rate (%):</label>
+        <input type="number" id="interest_rate" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="maturity_date">Maturity Date:</label>
+        <input type="date" id="maturity_date">
+      </div>
+      <div class="form-group">
+        <label for="maturity_amount">Maturity Amount:</label>
+        <input type="number" id="maturity_amount" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="nominee">Nominee:</label>
+        <input type="text" id="nominee">
+      </div>
+      <div class="form-group">
+        <label for="account_under_person">Account Under Person:</label>
+        <input type="text" id="account_under_person">
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button type="submit">Add Account</button>
+      <button type="reset">Clear Form</button>
+    </div>
+  </form>
+  <div id="form-error" class="error"></div>
+  <div id="form-success" class="success"></div>
+
+  <h2>Account List</h2>
+  <button id="refresh-btn">Refresh List</button>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Date</th>
+          <th>Mobile</th>
+          <th>CIF</th>
+          <th>Account No.</th>
+          <th>PAN</th>
+          <th>Aadhar</th>
+          <th>DOB</th>
+          <th>Amount</th>
+          <th>Interest</th>
+          <th>Maturity Date</th>
+          <th>Maturity Amount</th>
+          <th>Nominee</th>
+          <th>Under Person</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="account-list"></tbody>
+    </table>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
