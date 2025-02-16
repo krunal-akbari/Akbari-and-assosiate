@@ -4,6 +4,18 @@
     "main": "main.js",
     "scripts": {
         "start": "electron .",
+        "build": {
+            "appId": "com.yourcompany.yourapp",
+            "productName": "YourApp",
+            "files": [
+                "dist/**/*",
+                "package.json"
+            ],
+            "win": {
+                "target": "nsis",
+                "icon": "build/icon.ico"
+            }
+        },
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -19,7 +31,10 @@
     "homepage": "https://github.com/krunal-akbari/Akbari-and-assosiate#readme",
     "description": "",
     "dependencies": {
-        "electron": "^34.2.0",
         "sqlite3": "^5.1.7"
+    },
+    "devDependencies": {
+        "electron": "^34.2.0",
+        "electron-builder": "^25.1.8"
     }
 }
